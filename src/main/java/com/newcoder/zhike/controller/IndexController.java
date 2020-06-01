@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-//@Controller
+@Controller
 public class IndexController {
-    @RequestMapping(path = {"/", "/index"})
+    @RequestMapping(path = {"/i"})
     @ResponseBody
     public String index(HttpSession session) {
         Logger logger = LoggerFactory.getLogger(IndexController.class);

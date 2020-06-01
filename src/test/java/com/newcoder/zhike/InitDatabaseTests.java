@@ -32,7 +32,7 @@ public class InitDatabaseTests {
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
             User user = new User();
-            user.setHeadurl(String.format("https://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
+            user.setHeadurl(String.format("https://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
             user.setName(String.format("USER%d", i));
             user.setPassword("");
             user.setSalt("");
