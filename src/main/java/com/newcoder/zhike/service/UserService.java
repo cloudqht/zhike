@@ -1,6 +1,6 @@
 package com.newcoder.zhike.service;
 
-import com.newcoder.zhike.dao.LoginTicketDAO;
+import com.newcoder.zhike.dao.LoginTicketRepository;
 import com.newcoder.zhike.dao.UserDAO;
 import com.newcoder.zhike.model.LoginTicket;
 import com.newcoder.zhike.model.User;
@@ -14,9 +14,9 @@ import java.util.*;
 @Service
 public class UserService {
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
     @Autowired
-    LoginTicketDAO loginTicketDAO;
+    private LoginTicketRepository loginTicketRepository;
     public User getUser(int id){
         return userDAO.selectById(id);
     }
@@ -82,7 +82,11 @@ public class UserService {
         loginTicket.setExpired(date);
         loginTicket.setStatus(0);
         loginTicket.setTicket(UUID.randomUUID().toString().replaceAll("-", ""));
-        loginTicketDAO.addTicket(loginTicket);
+//        loginTicketDAO.addTicket(loginTicket);
+        loginTicketRepository.save(loginTicket);
         return loginTicket.getTicket();
+    }
+    public void logout(String ticket){
+        loginTicketRepository.updateStatus(1, ticket);
     }
 }

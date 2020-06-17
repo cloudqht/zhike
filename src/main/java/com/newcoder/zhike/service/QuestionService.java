@@ -12,7 +12,12 @@ public class QuestionService {
     @Autowired
     QuestionDAO questionDAO;
 
-    public List<Question> getLatestQuestions(int userId, int offset, int limit){
+    public List<Question> getLatestQuestions(int userId, int offset, int limit) {
         return questionDAO.selectLatestQuestions(userId, offset, limit);
+    }
+
+    public int addQuestion(Question question) {
+        //添加成功的返回值大于0
+        return questionDAO.addQuestion(question) > 0 ? question.getId() : 0;
     }
 }

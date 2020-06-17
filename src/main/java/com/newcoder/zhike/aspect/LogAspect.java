@@ -16,18 +16,18 @@ import java.util.Date;
 public class LogAspect {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
-    @Before("execution(* com.newcoder.zhike.controller.*Controller.*(..))")
-    public void beforeMethod(JoinPoint joinPoint) {
-        StringBuilder sb = new StringBuilder();
-        for (Object org : joinPoint.getArgs()) {
-            sb.append("arg: " + org.toString() + "|");
-        }
-        logger.info("before method" + sb.toString());
-
-    }
-
-    @After("execution(* com.newcoder.zhike.controller.IndexController.*(..))")
-    public void afterMethod() {
-        logger.info("after method" + new Date());
-    }
+//    @Before("execution(* com.newcoder.zhike.controller.*Controller.*(..))")
+//    public void beforeMethod(JoinPoint joinPoint) {
+//        StringBuilder sb = new StringBuilder();
+//        for (Object org : joinPoint.getArgs()) {
+//            sb.append("arg: " + org.toString() + "|");
+//        }
+//        logger.info("before method" + sb.toString());
+//
+//    }
+//
+//    @After("execution(* com.newcoder.zhike.controller.IndexController.*(..))")
+//    public void afterMethod() {
+//        logger.info("after method" + new Date());
+//    }
 }

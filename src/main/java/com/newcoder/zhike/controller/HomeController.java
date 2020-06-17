@@ -29,7 +29,7 @@ public class HomeController {
 
     @RequestMapping(path = {"/", "/index"})
     public String index(Model model) {
-        List<ViewObject> volist = getQuestions(0, 0, 5);
+        List<ViewObject> volist = getQuestions(0, 0, 10);
         model.addAttribute("volist", volist);
         return "index";
     }
